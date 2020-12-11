@@ -1,0 +1,29 @@
+# Compiled binary addons 
+build/
+
+# npm
+node_modules
+package-lock.json
+*.log
+*.gz
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+coverage
+
+# dotenv environment variables file
+.env
+.env.test
+
+# parcel-bundler cache
+.cache
+.parcel-cache
+
+# Optional eslint cache
+.eslintcache
