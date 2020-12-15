@@ -6,30 +6,14 @@ class Classes extends RESTDataSource {
     this.baseURL = process.env.API_URL;
   }
 
-  async searchTeacher(room) {
-    const teacher = this.get(`/users/${room.teacher_id}`);
-
-    return teacher;
-  }
-
   async show() {
-    const classesData = await this.get("/classes");
-
-    const classes = classesData.map(async (room) => ({
-      ...room,
-      teacher: await this.searchTeacher(room),
-    }));
+    const classes = await this.get("/classes");
 
     return classes;
   }
 
   async index(id) {
-    const classData = await this.get(`/classes/${id}`);
-
-    const classroom = {
-      ...classData,
-      teacher: await this.searchTeacher(classData),
-    };
+    const classroom = await this.get(`/classes/${id}`);
 
     return classroom;
   }
