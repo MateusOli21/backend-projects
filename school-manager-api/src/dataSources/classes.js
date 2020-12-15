@@ -17,6 +17,28 @@ class Classes extends RESTDataSource {
 
     return classroom;
   }
+
+  async create(classroom) {
+    const createdClass = await this.post("/classes", classroom);
+
+    return createdClass;
+  }
+
+  async update(id, classroom) {
+    const findedClass = await this.get(`/classes/${id}`);
+
+    const newInfos = Object.assign(findedClass, { ...classroom });
+
+    const updatedClass = await this.put(`/classes/${id}`, newInfos);
+
+    return updatedClass;
+  }
+
+  async delete(id) {
+    await this.delete(`/classes/${id}`);
+
+    return id;
+  }
 }
 
 export default Classes;

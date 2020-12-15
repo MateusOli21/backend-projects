@@ -13,4 +13,10 @@ type Query{
     class(id: ID!): Class
 }
 
+type Mutation{
+    addClass(teacher_id: Int!, vacancies: Int!, description: String!): Class!
+    updateClass(id: ID!, teacher_id: Int, vacancies: Int, description: String): Class!
+    deleteClass(id: ID!): ID
+}
+
 `;
