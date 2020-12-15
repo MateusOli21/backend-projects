@@ -1,11 +1,9 @@
 import { RESTDataSource } from "apollo-datasource-rest";
-import User from "./user";
 
 class Classes extends RESTDataSource {
   constructor() {
     super();
     this.baseURL = process.env.API_URL;
-    this.user = new User();
   }
 
   async searchTeacher(room) {
